@@ -76,7 +76,7 @@ function MusicPlayer() {
     if (track) {
       const trackUrl = `http://localhost:3000${track.src}`;
       audioRef.current.src = trackUrl;
-      audioRef.current.load(); // Ensure the audio element is reloaded with the new source
+      audioRef.current.load(); 
       audioRef.current.play()
         .then(() => {
           setIsPlaying(true);
@@ -84,7 +84,6 @@ function MusicPlayer() {
         .catch(error => {
           console.error('Playback error:', error);
           setIsPlaying(false);
-          // Add logic here to handle retries or user feedback
         });
     } else {
       console.error(`Track at index ${index} is undefined.`);
@@ -170,7 +169,6 @@ function MusicPlayer() {
     );
   }
 
-  // Once data is loaded, render the full UI
   return (
     <div>
       <h1>Music Player</h1>

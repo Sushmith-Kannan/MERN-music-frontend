@@ -10,7 +10,7 @@ function SongList({ playTrack, setTracks, tracks }) {
       try {
         const response = await axios.get('http://localhost:3000/tracks');
         setTracks(response.data);
-        setFilteredTracks(response.data); // Initialize filteredTracks with all tracks
+        setFilteredTracks(response.data); 
       } catch (error) {
         console.error('Error fetching tracks:', error);
       }
@@ -20,7 +20,7 @@ function SongList({ playTrack, setTracks, tracks }) {
   }, [setTracks]);
 
   useEffect(() => {
-    // Filter tracks based on searchQuery whenever it changes
+
     const filtered = tracks.filter(track =>
       track.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
       track.artist.toLowerCase().includes(searchQuery.toLowerCase())
